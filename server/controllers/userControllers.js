@@ -40,8 +40,8 @@ module.exports.login = async (req,res,next) => {
             return res.json({ msg: "Inncorect Username or Password", status: false });
         }
 
-        const userobj = {...user};
-        userobj.password = null;
+        let userobj = user;
+        userobj.password = null
         return res.json({ status: true, userobj });
     } catch (ex) {
         console.log(ex);

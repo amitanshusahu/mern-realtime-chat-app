@@ -37,7 +37,8 @@ export default function Register(){
                     toast(res.data.msg);
                 }
                 if(res.data.status === true ){
-                    localStorage.setItem("nistinder-user" , res.data.userobj)
+                    let stringJsonData = JSON.stringify(res.data.userobj)
+                    localStorage.setItem("nistinder-user" , stringJsonData)
                     navigate('/')
                 }
             })

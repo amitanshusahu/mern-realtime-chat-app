@@ -1,7 +1,8 @@
 const PORT = 3001;
 const express = require("express");
 const app = express();
-const userRoutes = require("./routes/userRoutes")
+const userRoutes = require("./routes/userRoutes");
+const messageRoute = require("./routes/messageRoute");
 const db = require("./db");
 db();
 const cors = require("cors")
@@ -12,6 +13,7 @@ app.use(cors());
 
 //routes
 app.use("/api/auth" , userRoutes);
+app.use("/api/messages", messageRoute);
 
 //listen 
 app.listen(PORT,()=>{
